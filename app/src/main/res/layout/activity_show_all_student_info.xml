@@ -65,5 +65,6 @@
         android:id="@+id/textView5"
         android:layout_alignTop="@+id/textView4"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="12dp"/>
 </RelativeLayout>

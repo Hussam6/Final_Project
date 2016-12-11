@@ -65,11 +65,11 @@ public class AddScoreAndCommentActivity extends AppCompatActivity {
         String studentComment = et_UserEnterStudentComment.getText().toString();
         String studentScore = String.valueOf(score);
         db.insertStudentInfo(studentID, studentScore, studentComment);
-        Toast.makeText(this, "done" , Toast.LENGTH_LONG).show();
 
         //Setting the comment edit text to empty string and seek bar to zero.
         et_UserEnterStudentComment.setText("");
         sb_UserSelectStudentScore.setProgress(0);
+        finish();
         db.close();
     }
 
