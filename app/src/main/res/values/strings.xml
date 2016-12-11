@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Project_vaghela</string>
+    <string name="btnGoToNextPage">Go To Next Page</string>
+    <string name="btnSubmit">Submit</string>
+    <string name="btnBack">Back</string>
+    <string name="btnShowAll">Show All</string>
+    <string name="btnHome">Home</string>
+    <string name="btnUpdate">Update</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="tvStudentId">StudentID</string>
+    <string name="tvScore">Score</string>
+    <string name="tvComment">Comment</string>
+</resources>
