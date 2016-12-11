@@ -39,12 +39,11 @@ public class StudentIDActivity extends AppCompatActivity {
             startActivity(intent);
 
             et_UserEnterStudentID.setText("");
-
         }
     }
 
     //This method is called when the user presses the show all button.
-    //Taking the user to listview activity and displaying all the data that is their in the database.
+    //Taking the user to list view activity and displaying all the data that is their in the database.
     public void OnClickGoToShowAllStudentActivityAndDisplaysAllStudentInfo(View view) {
 
         Intent intent = new Intent(this, ShowAllStudentInfoActivity.class);
