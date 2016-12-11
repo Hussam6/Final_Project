@@ -7,6 +7,7 @@
     <string name="btnHome">Home</string>
     <string name="btnUpdate">Update</string>
     <string name="btnLogin">Login</string>
+    <string name="btnLogout">Logout</string>
     <string name="btnCancel">Cancel</string>
     <string name="tvStudentId">StudentID</string>
     <string name="tvScore">Score</string>

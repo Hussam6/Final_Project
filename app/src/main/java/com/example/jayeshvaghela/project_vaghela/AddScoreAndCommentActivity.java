@@ -25,13 +25,14 @@ public class AddScoreAndCommentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_score_and_comment);
 
+        //Initializing variables to widgets.
         et_UserEnterStudentComment = (EditText) findViewById(R.id.et_UserEnterStudentComment);
         sb_UserSelectStudentScore = (SeekBar) findViewById(R.id.sb_UserSelectStudentScore);
         tv_SeekBarValue = (TextView) findViewById(R.id.tv_SeekBarValue);
 
         db = new DBAdapter(this);
 
-        //Seekbar listener is used to getting the score value from the user and also display the value in a textview.
+        //Seek bar listener is used to getting the score value from the user and also display the value in a textview.
         sb_UserSelectStudentScore.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -42,11 +43,13 @@ public class AddScoreAndCommentActivity extends AppCompatActivity {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
 
+                //remain empty
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+                //remain empty
             }
         });
     }
@@ -54,7 +57,9 @@ public class AddScoreAndCommentActivity extends AppCompatActivity {
     // The method adds the user entered student IDs, score, comment into the database when the user presses the submit button.
     public void OnClickSubmitUserEnteredDataIntoDatabase(View view) {
 
+        //Opening the database.
         db.open();
+        //Getting user input data from the previous activity.
         Intent intent = getIntent();
         String studentID = intent.getExtras().getString("output");
         String studentComment = et_UserEnterStudentComment.getText().toString();
@@ -62,6 +67,7 @@ public class AddScoreAndCommentActivity extends AppCompatActivity {
         db.insertStudentInfo(studentID, studentScore, studentComment);
         Toast.makeText(this, "done" , Toast.LENGTH_LONG).show();
 
+        //Setting the comment edit text to empty string and seek bar to zero.
         et_UserEnterStudentComment.setText("");
         sb_UserSelectStudentScore.setProgress(0);
         db.close();
@@ -73,6 +79,7 @@ public class AddScoreAndCommentActivity extends AppCompatActivity {
         finish();
     }
 
+    //This method takes the user back to the home screen.
     public void OnClickGoToHomeActivity(View view) {
 
         finish();

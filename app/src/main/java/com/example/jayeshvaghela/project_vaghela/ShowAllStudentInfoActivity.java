@@ -23,11 +23,12 @@ public class ShowAllStudentInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all_student_info);
 
+        //Initializing variables to widgets.
         lv_DisplaysAllStudentInfo = (ListView) findViewById(R.id.lv_DisplaysAllStudentInfo);
         db = new DBAdapter(this);
         db.open();
 
-        //Calling the method to populate listview with data from database.
+        //Calling the method to populate list view with data from database.
         DisplaysAllStudentInformation();
 
         lv_DisplaysAllStudentInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -39,7 +40,6 @@ public class ShowAllStudentInfoActivity extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_SEND);
                 intent.putExtra("output", itemPosition);
                 startActivity(intent);
-
                 finish();
             }
         });
@@ -58,11 +58,12 @@ public class ShowAllStudentInfoActivity extends AppCompatActivity {
         lv_DisplaysAllStudentInfo.setAdapter(cursorAdapter);
     }
 
-    //When the back button is clicked it takes the user back to the previous activity.
+    //This method takes the user back to the previous activity.
     public void OnClickGoToPreviousActivity(View view) {
         finish();
     }
 
+    //This method takes the user back to the home screen.
     public void OnClickGoToHomeActivity(View view) {
         finish();
     }

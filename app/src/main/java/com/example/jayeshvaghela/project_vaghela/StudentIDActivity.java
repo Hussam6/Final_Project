@@ -17,11 +17,12 @@ public class StudentIDActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_id);
 
+        //Initializing variables to widgets.
         et_UserEnterStudentID = (EditText) findViewById(R.id.et_UserEnterStudentID);
 
     }
 
-    //This is checks if the edittext has some value in it or is empty.
+    //This is checks if the edit text has some value in it or is empty.
     //If it has value it takes the value and passes the value to the next activity.
     //If it is empty prompts with a toast message.
     public void OnClickGoToAddScoreAndCommentActivity(View view) {
@@ -48,5 +49,10 @@ public class StudentIDActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, ShowAllStudentInfoActivity.class);
         startActivity(intent);
+    }
+
+    //This method takes the user back to the login screen.
+    public void OnClickLogoutOfApplication(View view) {
+        finish();
     }
 }

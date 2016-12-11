@@ -9,21 +9,26 @@ import android.widget.Toast;
 
 public class UpdateStudentInfoActivity extends AppCompatActivity {
 
+    //Declaring widget references.
     EditText et_UserUpdateStudentScore;
     EditText et_UserUpdateStudentComment;
-    DBAdapter db;
 
+
+    //Declaring variables.
     long userInput;
     String updatedScore;
     String updatedComment;
+    DBAdapter db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_student_info);
 
+        //Initializing variables to widgets.
         et_UserUpdateStudentScore = (EditText) findViewById(R.id.et_UserUpdateStudentScore);
         et_UserUpdateStudentComment = (EditText) findViewById(R.id.et_UserUpdateStudentComment);
+
 
         db = new DBAdapter(this);
     }
@@ -32,20 +37,30 @@ public class UpdateStudentInfoActivity extends AppCompatActivity {
     // and displayed in the listview.
     public void OnClickUpdatesStudentScoreAndComment(View view) {
 
-        db.open();
-        Intent intent = getIntent();
-        userInput = intent.getExtras().getLong("output");
-        updatedScore = et_UserUpdateStudentScore.getText().toString();
-        updatedComment = et_UserUpdateStudentComment.getText().toString();
-        db.updateContact(userInput, updatedScore, updatedComment);
-        db.close();
+        if (et_UserUpdateStudentScore.getText().length() <=0 && et_UserUpdateStudentComment.getText().length() <=0)
+        {
+            Toast.makeText(this, "Enter Score And Comment", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            db.open();
+            Intent intent = getIntent();
+            userInput = intent.getExtras().getLong("output");
+            updatedScore = et_UserUpdateStudentScore.getText().toString();
+            updatedComment = et_UserUpdateStudentComment.getText().toString();
+            db.updateContact(userInput, updatedScore, updatedComment);
+            db.close();
 
-        Toast.makeText(this, "Student Info Updated", Toast.LENGTH_SHORT).show();
-        Intent intent2 = new Intent(this, ShowAllStudentInfoActivity.class);
-        startActivity(intent2);
-        finish();
+            Toast.makeText(this, "Student Info Updated", Toast.LENGTH_SHORT).show();
+            Intent intent2 = new Intent(this, ShowAllStudentInfoActivity.class);
+            startActivity(intent2);
+            finish();
+        }
+
+
     }
 
+    //This method takes the user back to the previous activity.
     public void OnClickGoToPreviousActivity(View view) {
 
         Intent intent = new Intent(this, ShowAllStudentInfoActivity.class);
@@ -53,11 +68,13 @@ public class UpdateStudentInfoActivity extends AppCompatActivity {
         finish();
     }
 
+    //This method takes the user back to the home screen.
     public void OnClickGoToHomeActivity(View view) {
 
         finish();
     }
 
+    //This method cancels the update process.
     public void OnClickCancelUpdate(View view) {
 
         Intent intent = new Intent(this, ShowAllStudentInfoActivity.class);
