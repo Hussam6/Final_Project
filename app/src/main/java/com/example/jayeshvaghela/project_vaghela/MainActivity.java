@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         else
         {
 
-            serverURL = "http://mohameom.dev.fast.sheridanc.on.ca/users/verifyUserData.php?"+username+"=user&"+password+"=12345";
+            serverURL = "http://mohameom.dev.fast.sheridanc.on.ca/users/verifyUserData.php?user="+username+"&password"+password+"=12345";
             new DownloadTask().execute();
         }
 
