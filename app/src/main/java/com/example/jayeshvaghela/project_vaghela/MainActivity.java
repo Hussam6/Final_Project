@@ -1,22 +1,21 @@
 package com.example.jayeshvaghela.project_vaghela;
 
+
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     //This class does background tasks for the HTTP connection.
     public class DownloadTask extends AsyncTask<String, Void, String> {
 
@@ -72,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-
 
             try {
                 URL url = new URL(serverURL);
@@ -86,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
                 System.out.println(value);
 
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
@@ -97,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
 
-            //Takes the user to next activity once the credentials are correct.
+            //Takes the user to next activity once the credentials are validated.
             Intent intent = new Intent(MainActivity.this, StudentIDActivity.class);
             startActivity(intent);
         }
