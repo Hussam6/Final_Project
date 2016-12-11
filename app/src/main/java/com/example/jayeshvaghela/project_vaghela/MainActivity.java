@@ -44,12 +44,13 @@ public class MainActivity extends AppCompatActivity {
         String password = et_UserEnterPassword.getText().toString();
 
         //Checking if the edit texts are not empty. If it is, gives the user a Toast Message.
-        if(username.length()<=0 && password.length()<=0)
+        if(et_UserEnterUserName.getText().toString().length() <=0 && et_UserEnterPassword.getText().length() <=0)
         {
             Toast.makeText(this, "Incorrect Username or Password", Toast.LENGTH_SHORT).show();
         }
         else
         {
+
             serverURL = "http://mohameom.dev.fast.sheridanc.on.ca/users/verifyUserData.php?"+username+"=user&"+password+"=12345";
             new DownloadTask().execute();
         }
